@@ -8,7 +8,7 @@ import Link from "next/link";
 import { classes } from "./lib/classes-data";
 
 const recentItems: { label: string; filename?: string; href: string; isFolder?: boolean }[] = [
-  { label: "Қазақ тілі 5А", href: "/classes/kazakh-5a", isFolder: true },
+  { label: "Қазақ тілі 5", href: "/classes/kazakh-5a", isFolder: true },
   { label: "Сын есім", href: "/classes/kazakh-5a/syn-esim", isFolder: true },
   { label: "Негізгі ережелер", filename: "syn_esim_ezheler.pdf", href: "/classes/kazakh-5a/syn-esim" },
   { label: "Рефлексия слайдтары", filename: "refleksiya_01.pptx", href: "/classes/kazakh-5a/syn-esim" },

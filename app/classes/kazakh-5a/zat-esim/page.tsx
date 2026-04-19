@@ -16,12 +16,36 @@ const materials: Material[] = [
     filename: "qmzh_zat_esim.docx",
   },
   {
+    id: "plan1b",
+    label: "5 ҚМЖ Зат есім",
+    description: "Қысқамерзімді жоспар",
+    type: "docx",
+    src: "/materials/kaz_qmzh_5a_zat_esim.docx",
+    filename: "kaz_qmzh_5a_zat_esim.docx",
+  },
+  {
     id: "plan2",
     label: "ҚМЖ 04.02",
     description: "Қысқамерзімді жоспар",
     type: "docx",
     src: "/materials/qmzh_04_02.docx",
     filename: "qmzh_04_02.docx",
+  },
+  {
+    id: "plan2b",
+    label: "5 ҚМЖ 04.02",
+    description: "Қысқамерзімді жоспар",
+    type: "docx",
+    src: "/materials/kaz_qmzh_5a_04_02.docx",
+    filename: "kaz_qmzh_5a_04_02.docx",
+  },
+  {
+    id: "plan3",
+    label: "5 ҚМЖ 18.02",
+    description: "Қысқамерзімді жоспар",
+    type: "docx",
+    src: "/materials/kaz_qmzh_5a_18_02.docx",
+    filename: "kaz_qmzh_5a_18_02.docx",
   },
 ];
 
@@ -78,7 +102,7 @@ export default function ZatEsimPage() {
               Артқа
             </Link>
             <div className="flex flex-col gap-1">
-              <p className="text-[12px] text-[#7c7c7c] font-medium">Қазақ тілі · 5А сынып</p>
+              <p className="text-[12px] text-[#7c7c7c] font-medium">Қазақ тілі · 5-сынып</p>
               <p className="text-[32px] font-semibold text-black tracking-[-0.5px]">
                 Зат есім
               </p>

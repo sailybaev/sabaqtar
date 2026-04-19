@@ -115,7 +115,7 @@ export default function SynEsimPage() {
               Артқа
             </Link>
             <div className="flex flex-col gap-1">
-              <p className="text-[12px] text-[#7c7c7c] font-medium">Қазақ тілі · 5А сынып</p>
+              <p className="text-[12px] text-[#7c7c7c] font-medium">Қазақ тілі · 5-сынып</p>
               <p className="text-[32px] font-semibold text-black tracking-[-0.5px]">
                 Сын есім
               </p>

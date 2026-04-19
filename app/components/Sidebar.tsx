@@ -2,10 +2,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, BookOpen, Settings, HelpCircle, ChevronDown } from "lucide-react";
+import { Home, BookOpen, Library, Gamepad2, Settings, HelpCircle, ChevronDown } from "lucide-react";
 import { classes } from "../lib/classes-data";
 
-type NavPage = "home" | "classes";
+type NavPage = "home" | "classes" | "textbooks" | "games";
 
 interface SidebarProps {
   activePage: NavPage;
@@ -37,6 +37,24 @@ export default function Sidebar({ activePage }: SidebarProps) {
               <BookOpen size={20} className={activePage === "classes" ? "text-[#497fff]" : "text-[#5b5b5b]"} strokeWidth={1.5} />
               <p className={`text-[14px] font-medium tracking-[-0.0476px] ${activePage === "classes" ? "text-[#497fff]" : "text-[#5b5b5b]"}`}>
                 Сыныптар
+              </p>
+            </div>
+          </Link>
+
+          <Link href="/textbooks" className="w-full">
+            <div className={`flex items-center gap-3 h-9 px-4 rounded-[8px] w-full transition-colors ${activePage === "textbooks" ? "bg-[rgba(73,127,255,0.1)]" : "hover:bg-[rgba(0,0,0,0.04)]"}`}>
+              <Library size={20} className={activePage === "textbooks" ? "text-[#497fff]" : "text-[#5b5b5b]"} strokeWidth={1.5} />
+              <p className={`text-[14px] font-medium tracking-[-0.0476px] ${activePage === "textbooks" ? "text-[#497fff]" : "text-[#5b5b5b]"}`}>
+                Оқулықтар
+              </p>
+            </div>
+          </Link>
+
+          <Link href="/games" className="w-full">
+            <div className={`flex items-center gap-3 h-9 px-4 rounded-[8px] w-full transition-colors ${activePage === "games" ? "bg-[rgba(73,127,255,0.1)]" : "hover:bg-[rgba(0,0,0,0.04)]"}`}>
+              <Gamepad2 size={20} className={activePage === "games" ? "text-[#497fff]" : "text-[#5b5b5b]"} strokeWidth={1.5} />
+              <p className={`text-[14px] font-medium tracking-[-0.0476px] ${activePage === "games" ? "text-[#497fff]" : "text-[#5b5b5b]"}`}>
+                Ойындар
               </p>
             </div>
           </Link>

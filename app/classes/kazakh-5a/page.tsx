@@ -67,7 +67,7 @@ export default function Kazakh5APage() {
             <div className="flex flex-col gap-1">
               <p className="text-[12px] text-[#7c7c7c] font-medium">Қазақ тілі · Кулметтенова А.</p>
               <p className="text-[32px] font-semibold text-black tracking-[-0.5px]">
-                5А сынып
+                5-сынып
               </p>
             </div>
           </div>
