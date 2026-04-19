@@ -1,4 +1,5 @@
 import Sidebar from "../../components/Sidebar";
+import BottomNav from "../../components/BottomNav";
 import FileIcon from "../../components/FileIcon";
 import Link from "next/link";
 import { LayoutGrid, List, ChevronDown, ArrowLeft, BookOpen } from "lucide-react";
@@ -28,13 +29,12 @@ const materials = [
 
 export default function AlgebraBasicsPage() {
   return (
-    <div className="bg-white flex h-[982px] w-[1512px]">
+    <div className="bg-white flex flex-col lg:flex-row min-h-screen">
       <Sidebar activePage="classes" />
 
-      <div className="flex flex-col h-[982px] w-[1256px]">
-        {/* Custom topbar with inline search */}
+      <div className="flex flex-col flex-1 min-w-0">
         <div className="flex gap-4 h-14 items-center px-4 shrink-0 w-full">
-          <div className="flex items-center w-[180px]">
+          <div className="flex items-center flex-1">
             <div className="flex gap-2 h-5 items-center">
               <BookOpen size={20} className="text-black" strokeWidth={1.5} />
               <p className="text-[14px] font-medium text-black tracking-[-0.0476px] whitespace-nowrap">
@@ -43,7 +43,7 @@ export default function AlgebraBasicsPage() {
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-center w-[764px]">
+          <div className="hidden lg:flex flex-col items-center justify-center w-[764px]">
             <div className="bg-[#f4f3f3] flex items-center h-8 w-[540px] px-4 rounded-[8px]">
               <p className="text-[14px] font-medium opacity-30 text-black whitespace-nowrap leading-none">
                 Іздеу...
@@ -51,12 +51,12 @@ export default function AlgebraBasicsPage() {
             </div>
           </div>
 
-          <div className="flex gap-8 items-center justify-end flex-1">
+          <div className="flex gap-8 items-center justify-end">
             <div className="flex gap-3 items-center">
               <div className="bg-black flex items-center justify-center rounded-full w-6 h-6">
                 <p className="text-[14px] font-medium text-white">A</p>
               </div>
-              <div className="flex gap-1 items-center">
+              <div className="hidden lg:flex gap-1 items-center">
                 <p className="text-[14px] font-medium text-black tracking-[-0.0476px] whitespace-nowrap">Aziza</p>
                 <ChevronDown size={16} className="text-black" strokeWidth={1.5} />
               </div>
@@ -64,24 +64,23 @@ export default function AlgebraBasicsPage() {
           </div>
         </div>
 
-        {/* Content */}
-        <div className="flex flex-col gap-10 items-center pb-[10px] pt-10 px-10 w-full overflow-y-auto">
+        <div className="flex flex-col gap-8 lg:gap-10 items-center pb-24 lg:pb-[10px] pt-6 lg:pt-10 px-4 lg:px-10 w-full overflow-y-auto">
           {/* Back + Title */}
-          <div className="flex flex-col gap-6 items-start w-[792px]">
+          <div className="flex flex-col gap-4 lg:gap-6 items-start w-full lg:w-[792px]">
             <Link href="/classes" className="flex items-center gap-1 text-[14px] font-medium text-[#5b5b5b] tracking-[-0.0476px] hover:text-black transition-colors">
               <ArrowLeft size={16} strokeWidth={1.5} />
               Артқа
             </Link>
             <div className="flex flex-col gap-1">
               <p className="text-[12px] text-[#7c7c7c] font-medium">Математика · 5-сынып</p>
-              <p className="text-[32px] font-semibold text-black tracking-[-0.5px]">
+              <p className="text-[28px] lg:text-[32px] font-semibold text-black tracking-[-0.5px]">
                 Алгебраның негіздері
               </p>
             </div>
           </div>
 
           {/* Sub-lessons (folders) */}
-          <div className="flex flex-col gap-6 items-start w-[792px]">
+          <div className="flex flex-col gap-4 lg:gap-6 items-start w-full lg:w-[792px]">
             <div className="flex items-center justify-between w-full">
               <p className="text-[14px] font-medium text-[#5b5b5b] tracking-[-0.0476px]">Тақырыптар</p>
               <div className="flex gap-2 items-center">
@@ -90,11 +89,11 @@ export default function AlgebraBasicsPage() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-6 items-start w-[792px]">
+            <div className="flex flex-wrap gap-3 lg:gap-6 items-start w-full">
               {subLessons.map((lesson) => (
                 <div
                   key={lesson}
-                  className="bg-[rgba(73,127,255,0.05)] flex gap-2 items-center px-3 py-2 rounded-[8px] w-[180px] cursor-pointer hover:bg-[rgba(73,127,255,0.1)] transition-colors"
+                  className="bg-[rgba(73,127,255,0.05)] flex gap-2 items-center px-3 py-2 rounded-[8px] w-full sm:w-[calc(50%-6px)] lg:w-[180px] cursor-pointer hover:bg-[rgba(73,127,255,0.1)] transition-colors"
                 >
                   <FileIcon name={lesson} isFolder size={20} />
                   <p className="text-[13px] font-medium text-[#1a1a1a] tracking-[-0.13px] whitespace-nowrap overflow-hidden text-ellipsis flex-1 min-w-0">
@@ -106,7 +105,7 @@ export default function AlgebraBasicsPage() {
           </div>
 
           {/* Materials (files) */}
-          <div className="flex flex-col gap-6 items-start w-[792px]">
+          <div className="flex flex-col gap-4 lg:gap-6 items-start w-full lg:w-[792px]">
             <div className="flex items-center justify-between w-full">
               <p className="text-[14px] font-medium text-[#5b5b5b] tracking-[-0.0476px]">Материалдар</p>
               <div className="flex gap-2 items-center">
@@ -136,6 +135,8 @@ export default function AlgebraBasicsPage() {
           </div>
         </div>
       </div>
+
+      <BottomNav />
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function Sidebar({ activePage }: SidebarProps) {
   );
 
   return (
-    <div className="bg-[#f6f6f6] border-r border-[rgba(0,0,0,0.08)] flex flex-col h-full items-start justify-between py-4 w-64 shrink-0">
+    <div className="hidden lg:flex bg-[#f6f6f6] border-r border-[rgba(0,0,0,0.08)] flex-col h-full items-start justify-between py-4 w-64 shrink-0">
       <div className="flex flex-col gap-6 items-start px-2 w-full">
         {/* Main nav */}
         <div className="flex flex-col gap-1 w-full">

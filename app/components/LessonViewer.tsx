@@ -118,9 +118,9 @@ export default function LessonViewer({ materials, query = "" }: { materials: Mat
   const current = materials.find((m) => m.id === active);
 
   return (
-    <div className="flex gap-6 flex-1 min-h-0 w-full max-w-[1000px]">
+    <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 flex-1 min-h-0 w-full max-w-[1000px]">
       {/* Left: material list */}
-      <div className="flex flex-col gap-2 w-[220px] shrink-0 overflow-y-auto">
+      <div className="flex flex-col gap-2 lg:w-[220px] shrink-0 overflow-y-auto lg:overflow-y-auto overflow-x-auto lg:overflow-x-hidden">
         {filtered.length === 0 && (
           <p className="text-[11px] text-[#7c7c7c] px-2 py-1">Табылмады</p>
         )}
@@ -150,7 +150,7 @@ export default function LessonViewer({ materials, query = "" }: { materials: Mat
       </div>
 
       {/* Right: preview */}
-      <div className="flex-1 min-w-0 min-h-0 bg-[#f8f9fb] rounded-[12px] border border-[rgba(0,0,0,0.08)] overflow-hidden relative">
+      <div className="flex-1 min-w-0 min-h-[400px] lg:min-h-0 bg-[#f8f9fb] rounded-[12px] border border-[rgba(0,0,0,0.08)] overflow-hidden relative">
         {current ? (
           <>
             <Preview material={current} />

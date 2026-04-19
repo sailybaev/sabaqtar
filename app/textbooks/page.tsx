@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import TopBar from "../components/TopBar";
+import BottomNav from "../components/BottomNav";
 import { Library, Search, Download } from "lucide-react";
 import Link from "next/link";
 
@@ -38,9 +39,9 @@ const englishBooks: Textbook[] = [
 
 function BookCard({ book }: { book: Textbook }) {
   return (
-    <div className="border border-[rgba(0,0,0,0.08)] flex flex-col gap-3 items-center p-4 rounded-[12px] w-[172px] hover:border-[#497fff] hover:bg-[rgba(73,127,255,0.02)] transition-colors group">
-      <div className="bg-[rgba(73,127,255,0.08)] flex items-center justify-center rounded-[8px] w-full h-[100px]">
-        <span className="text-[32px] font-bold text-[#497fff] opacity-60">{book.grade}</span>
+    <div className="border border-[rgba(0,0,0,0.08)] flex flex-col gap-3 items-center p-4 rounded-[12px] w-[calc(50%-8px)] sm:w-[172px] hover:border-[#497fff] hover:bg-[rgba(73,127,255,0.02)] transition-colors group">
+      <div className="bg-[rgba(73,127,255,0.08)] flex items-center justify-center rounded-[8px] w-full h-[80px] sm:h-[100px]">
+        <span className="text-[28px] sm:text-[32px] font-bold text-[#497fff] opacity-60">{book.grade}</span>
       </div>
       <p className="text-[12px] font-medium text-[#1a1a1a] text-center leading-tight">{book.label}</p>
       <div className="flex gap-2 w-full">
@@ -62,28 +63,28 @@ export default function TextbooksPage() {
   const filteredEn = englishBooks.filter((b) => b.label.toLowerCase().includes(q) || b.grade.includes(q));
 
   return (
-    <div className="bg-white flex h-screen w-screen">
+    <div className="bg-white flex flex-col lg:flex-row min-h-screen">
       <Sidebar activePage="textbooks" />
 
-      <div className="flex flex-col flex-1 min-w-0 h-screen overflow-y-auto">
+      <div className="flex flex-col flex-1 min-w-0 overflow-y-auto">
         <TopBar breadcrumb="Оқулықтар" BreadcrumbIcon={Library} />
 
-        <div className="flex flex-col items-center pb-[10px] pt-10 px-10 shrink-0 w-full">
-          <div className="flex items-center w-[792px] relative">
+        <div className="flex flex-col items-center pb-[10px] pt-6 lg:pt-10 px-4 lg:px-10 shrink-0 w-full">
+          <div className="flex items-center w-full lg:w-[792px] relative">
             <Search size={18} className="absolute left-4 text-black opacity-30 pointer-events-none" strokeWidth={2} />
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Іздеу..."
-              className="bg-[#f4f3f3] flex-1 w-full pl-10 pr-4 py-3 rounded-[8px] text-[20px] font-normal text-black outline-none placeholder:opacity-30"
+              className="bg-[#f4f3f3] flex-1 w-full pl-10 pr-4 py-3 rounded-[8px] text-[16px] lg:text-[20px] font-normal text-black outline-none placeholder:opacity-30"
             />
           </div>
         </div>
 
-        <div className="flex flex-col gap-10 items-center pb-10 pt-8 px-10 w-full">
+        <div className="flex flex-col gap-8 lg:gap-10 items-center pb-24 lg:pb-10 pt-6 lg:pt-8 px-4 lg:px-10 w-full">
           {filteredKaz.length > 0 && (
-            <div className="flex flex-col gap-6 items-start w-[792px]">
+            <div className="flex flex-col gap-4 lg:gap-6 items-start w-full lg:w-[792px]">
               <p className="text-[14px] font-medium text-black tracking-[-0.0476px]">Қазақ тілі оқулықтары</p>
               <div className="flex flex-wrap gap-4 items-start w-full">
                 {filteredKaz.map((book) => <BookCard key={book.filename} book={book} />)}
@@ -92,7 +93,7 @@ export default function TextbooksPage() {
           )}
 
           {filteredEn.length > 0 && (
-            <div className="flex flex-col gap-6 items-start w-[792px]">
+            <div className="flex flex-col gap-4 lg:gap-6 items-start w-full lg:w-[792px]">
               <p className="text-[14px] font-medium text-black tracking-[-0.0476px]">Ағылшын тілі оқулықтары</p>
               <div className="flex flex-wrap gap-4 items-start w-full">
                 {filteredEn.map((book) => <BookCard key={book.filename} book={book} />)}
@@ -105,6 +106,8 @@ export default function TextbooksPage() {
           )}
         </div>
       </div>
+
+      <BottomNav />
     </div>
   );
 }
